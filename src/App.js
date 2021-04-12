@@ -1,5 +1,5 @@
-import Navbar from "./component/Navbar";
-import Footer from "./component/Footer";
+import MainPage from "./components/Main/Main";
+import Footer from "./components/Footer/Footer";
 import useFetch from "./api/useFetch";
 
 function App() {
@@ -15,13 +15,28 @@ function App() {
     "http://localhost:8000/tech"
   );
 
+  const { data: eventData, isPendingEvent, errEvent } = useFetch(
+    "http://localhost:8000/events"
+  );
+
 
   return (
     <>
       <header>
-        {(errLead || errCore||errTech) && <div>500 INTERNAL SERVER ERROR</div>}
-        {(isPendingLead || isPendingCore||isPendingTech) && <div>LOADING .....</div>}
-        {(leadData && coreTeamData && techData) && <Navbar leadData={leadData} coreTeamData={coreTeamData} techData={ techData}/>}
+        {(errLead || errCore || errTech ||errEvent) && (
+          <div>500 INTERNAL SERVER ERROR</div>
+        )}
+        {(isPendingLead || isPendingCore || isPendingTech ||isPendingEvent) && (
+          <div>LOADING .....</div>
+        )}
+        {leadData && coreTeamData && techData && eventData &&(
+          <MainPage
+            leadData={leadData}
+            coreTeamData={coreTeamData}
+            techData={techData}
+            eventData = {eventData}
+          />
+        )}
       </header>
       <Footer />
     </>
