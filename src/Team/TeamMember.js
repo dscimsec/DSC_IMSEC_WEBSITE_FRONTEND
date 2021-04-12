@@ -1,5 +1,5 @@
 
-import img from '../image/img1.svg'
+import img from '../images/img1.svg'
 
 const TeamMember = ({name,designation,profiles}) => {
     return (
@@ -7,8 +7,8 @@ const TeamMember = ({name,designation,profiles}) => {
             <img src={img} alt="#" />
             <div className="center">
                 <div className="row">
-                    <h6>{name}</h6>
-                    <p><b>{designation}{ console.log(name)}</b></p>
+                    <h6>PARADUMN gAUR</h6>
+                    <p><b>CORE</b></p>
                 </div>
                 <div className="row">
                     <div className="col s3">

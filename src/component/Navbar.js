@@ -1,33 +1,32 @@
-import img from "../image/Dsclogoims1.png";
+import img from "../images/Dsclogoims1.png";
 import { Component } from "react";
 import Home from "./Home";
 import About from "./About";
-import Team from "./Team";
-import Tech from "./Tech";
+import Team from "../Team/Team";
+import Tech from "../Tech/Tech";
 import Contact from "./Contact";
 import "./css/navbar.css";
-import processData from "../utiity/processData";
+import { processTechData, processUserData } from "../utiity/processData";
+import Event from "../Event/Event";
 
 class Navbar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       teamMember: [],
+      tech: [],
     };
   }
 
   static getDerivedStateFromProps(props, state) {
-    // console.log(props.leadData.users);
-    const lead = processData(props.leadData.users);
-    const coreTeamMembers = processData(props.coreTeamData.users);
+    const lead = processUserData(props.leadData.users);
+    const coreTeamMembers = processUserData(props.coreTeamData.users);
+    const techData = processTechData(props.techData.technologies);
     const team = lead.concat(coreTeamMembers);
-    // console.log(team);
+    console.log(props.techData.technologies);
     state.teamMember = team;
-    // setState({
-    //   teamMember: team,
-    // });
-    console.log(state);
+    state.tech = techData;
     return state;
   }
 
@@ -37,19 +36,22 @@ class Navbar extends Component {
       var elems = document.querySelectorAll(".sidenav");
       var instances = M.Sidenav.init(elems, {});
     });
-
-    // const lead = processData(this.props.leadData);
-    // const coreTeamMembers = processData(this.props.coreTeamData);
-    // const team = lead.concat(coreTeamMembers);
-    // // console.log(team);
-    // this.state.teamMember = team;
-    // this.setState({
-    //   teamMember :team
-    // })
-    console.log(this.state.teamMember);
   }
 
   render() {
+    const object = [
+      {
+        event_id: "1",
+        name: "Check",
+        banner: img,
+        location: "Egypt",
+        overview:
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis mollitia, ab enim tempore omnis ea beatae esse aliquid nihil\
+            officia facere. Nam minima qui, unde at nihil officia impedit cum, fuga illo repellendus quibusdam porro.",
+        link: "https://materializecss.com/",
+        time: "11:10",
+      },
+    ];
     return (
       <>
         <nav className="black lighten">
@@ -75,6 +77,9 @@ class Navbar extends Component {
               </li>
               <li>
                 <a href="#about">About</a>
+              </li>
+              <li>
+                <a href="#event">Event</a>
               </li>
               <li>
                 <a href="#contact">Contact</a>
@@ -104,6 +109,11 @@ class Navbar extends Component {
             </a>
           </li>
           <li>
+            <a style={{ color: `white` }} href="#about">
+              Event
+            </a>
+          </li>
+          <li>
             <a style={{ color: `white` }} href="/contact">
               Contact
             </a>
@@ -120,7 +130,10 @@ class Navbar extends Component {
             <Team team={this.state.teamMember} />
           </section>
           <section id="tech" style={{ padding: "15px" }}>
-            <Tech />
+            <Tech techData={this.state.tech} />
+          </section>
+          <section id="Event" style={{ padding: "15px" }}>
+            <Event object={ object}/>
           </section>
           <section id="contact" style={{ padding: "15px" }}>
             <Contact />
