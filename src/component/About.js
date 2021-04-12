@@ -11,7 +11,7 @@ const About = () => {
                         <span className="material-icons">
                             home_max
                         </span><br />
-                        <span class="black-text">The DSC program is a grassroots channel through
+                        <span className="black-text">The DSC program is a grassroots channel through
                         which Google provides development skills,
                         mobile and web development skills for students.
                         </span>
