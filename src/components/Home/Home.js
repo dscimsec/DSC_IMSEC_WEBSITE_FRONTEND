@@ -1,5 +1,5 @@
-import img from "../images/img1.svg";
-import "./css/home.css";
+import img from "../../images/img1.svg";
+import "./home.css";
 
 const Home = () => {
   return (

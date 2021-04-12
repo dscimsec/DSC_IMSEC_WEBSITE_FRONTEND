@@ -1,8 +1,5 @@
 import React from "react";
-import img from "../images/android.png";
-import web from "../images/web.png";
-import cloud from "../images/cloud.png";
-import ml from "../images/mi.png";
+import web from "../../images/web.png";
 
 function TechCard(props) {
   return (

@@ -30,3 +30,19 @@ exports.processTechData = (obj) => {
   }
   return techs;
 };
+
+exports.processEventData = (obj) => {
+  const events = [];
+  for (const elem in obj) {
+    const event = {
+      event_id: obj[elem].event_id,
+      name: obj[elem].name,
+      banner: obj[elem].banner,
+      overview: obj[elem].overview,
+      registration_link: obj[elem].registration_link,
+      time: obj[elem].time,
+    };
+    events.push(event);
+  }
+  return events;
+};

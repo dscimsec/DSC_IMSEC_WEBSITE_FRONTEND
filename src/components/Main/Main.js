@@ -1,21 +1,28 @@
-import img from "../images/Dsclogoims1.png";
+import img from "../../images/Dsclogoims1.png";
 import { Component } from "react";
-import Home from "./Home";
-import About from "./About";
+import Home from "../Home/Home";
+import About from "../About/About";
 import Team from "../Team/Team";
 import Tech from "../Tech/Tech";
-import Contact from "./Contact";
-import "./css/navbar.css";
-import { processTechData, processUserData } from "../utiity/processData";
+import Contact from "../Contact/Contact";
 import Event from "../Event/Event";
 
-class Navbar extends Component {
+import "./main.css";
+
+import {
+  processEventData,
+  processTechData,
+  processUserData,
+} from "../../utiity/processData";
+
+class MainPage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       teamMember: [],
       tech: [],
+      events: [],
     };
   }
 
@@ -24,18 +31,29 @@ class Navbar extends Component {
     const coreTeamMembers = processUserData(props.coreTeamData.users);
     const techData = processTechData(props.techData.technologies);
     const team = lead.concat(coreTeamMembers);
-    console.log(props.techData.technologies);
+    const events = processEventData(props.eventData.events);
+    console.log(events);
     state.teamMember = team;
     state.tech = techData;
+    state.events = events;
     return state;
   }
 
   componentDidMount() {
     const M = window.M;
-    document.addEventListener("DOMContentLoaded", function () {
-      var elems = document.querySelectorAll(".sidenav");
-      var instances = M.Sidenav.init(elems, {});
-    });
+    // document.addEventListener("DOMContentLoaded", function () {
+    var elems = document.querySelectorAll(".sidenav");
+    var instances = M.Sidenav.init(elems, {});
+    instances[0].isOpen = true;
+
+    // });
+  }
+
+  open() {
+    const M = window.M;
+    var elems = document.querySelectorAll(".sidenav");
+    var instances = M.Sidenav.init(elems, {});
+    instances[0].isOpen = false;
   }
 
   render() {
@@ -62,7 +80,12 @@ class Navbar extends Component {
                 style={{ width: "350px", height: "60px", marginLeft: "100px" }}
               />
             </li>
-            <a href="/" className="sidenav-trigger " data-target="mobile-links">
+            <a
+              href="/"
+              className="sidenav-trigger "
+              data-target="mobile-links"
+              onClick={() => this.open()}
+            >
               <i className="material-icons">menu</i>
             </a>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
@@ -73,7 +96,7 @@ class Navbar extends Component {
                 <a href="#team">Team</a>
               </li>
               <li>
-                <a href="/tech">Techonolgy</a>
+                <a href="#tech">Techonolgy</a>
               </li>
               <li>
                 <a href="#about">About</a>
@@ -132,8 +155,8 @@ class Navbar extends Component {
           <section id="tech" style={{ padding: "15px" }}>
             <Tech techData={this.state.tech} />
           </section>
-          <section id="Event" style={{ padding: "15px" }}>
-            <Event object={ object}/>
+          <section id="event" style={{ padding: "15px" }}>
+            <Event events={this.state.events} />
           </section>
           <section id="contact" style={{ padding: "15px" }}>
             <Contact />
@@ -144,4 +167,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default MainPage;
