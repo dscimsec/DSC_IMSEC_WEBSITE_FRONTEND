@@ -11,12 +11,17 @@ function App() {
     "http://localhost:8000/users/CORE"
   );
 
+  const { data: techData, isPendingTech, errTech } = useFetch(
+    "http://localhost:8000/tech"
+  );
+
+
   return (
     <>
       <header>
-        {errLead && errCore && <div>500 INTERNAL SERVER ERROR</div>}
-        {isPendingLead && isPendingCore && <div>LOADING .....</div>}
-        {coreTeamData && <Navbar leadData={leadData} coreTeamData={coreTeamData} />}
+        {(errLead || errCore||errTech) && <div>500 INTERNAL SERVER ERROR</div>}
+        {(isPendingLead || isPendingCore||isPendingTech) && <div>LOADING .....</div>}
+        {(leadData && coreTeamData && techData) && <Navbar leadData={leadData} coreTeamData={coreTeamData} techData={ techData}/>}
       </header>
       <Footer />
     </>
