@@ -1,22 +1,24 @@
 import MainPage from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
 import useFetch from "./api/useFetch";
+import Loading from "./components/Loading/Loading";
+import Error from "./components/Error/Error";
 
 function App() {
   const { data: leadData, isPendingLead, errLead } = useFetch(
-    "http://localhost:8000/users/LEAD"
+    `${process.env.REACT_APP_BACKEND_URL}/users/LEAD`
   );
 
   const { data: coreTeamData, isPendingCore, errCore } = useFetch(
-    "http://localhost:8000/users/CORE"
+    process.env.REACT_APP_BACKEND_URL +"/users/CORE"
   );
 
   const { data: techData, isPendingTech, errTech } = useFetch(
-    "http://localhost:8000/tech"
+    process.env.REACT_APP_BACKEND_URL+"/tech"
   );
 
   const { data: eventData, isPendingEvent, errEvent } = useFetch(
-    "http://localhost:8000/events"
+    process.env.REACT_APP_BACKEND_URL+"/events"
   );
 
 
@@ -24,10 +26,10 @@ function App() {
     <>
       <header>
         {(errLead || errCore || errTech ||errEvent) && (
-          <div>500 INTERNAL SERVER ERROR</div>
+          <div><Error/></div>
         )}
         {(isPendingLead || isPendingCore || isPendingTech ||isPendingEvent) && (
-          <div>LOADING .....</div>
+          <div><Loading/></div>
         )}
         {leadData && coreTeamData && techData && eventData &&(
           <MainPage
