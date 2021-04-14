@@ -38,46 +38,31 @@ class MainPage extends Component {
     state.events = events;
     return state;
   }
-
-  componentDidMount() {
+  close(){
     const M = window.M;
-    // document.addEventListener("DOMContentLoaded", function () {
-    var elems = document.querySelectorAll(".sidenav");
+    var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, {});
     instances[0].isOpen = true;
 
-    // });
   }
-
   open() {
     const M = window.M;
-    var elems = document.querySelectorAll(".sidenav");
+    var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, {});
     instances[0].isOpen = false;
+    
   }
 
   render() {
-    const object = [
-      {
-        event_id: "1",
-        name: "Check",
-        banner: img,
-        location: "Egypt",
-        overview:
-          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis mollitia, ab enim tempore omnis ea beatae esse aliquid nihil\
-            officia facere. Nam minima qui, unde at nihil officia impedit cum, fuga illo repellendus quibusdam porro.",
-        link: "https://materializecss.com/",
-        time: "11:10",
-      },
-    ];
+    
     return (
       <>
         <nav className="black lighten">
           <div className="nav-wrapper container">
             <li className="brand-logo">
-              <img
+              <img 
                 src={img}
-                style={{ width: "350px", height: "60px", marginLeft: "100px" }}
+                style={{ width: "250px", height: "45px",marginTop:"6px" }}
               />
             </li>
             <a
@@ -112,32 +97,32 @@ class MainPage extends Component {
         </nav>
         <ul className="sidenav black" id="mobile-links">
           <li>
-            <a style={{ color: `white` }} href="#home">
+            <a style={{ color: `white` }} onClick={() => this.close()} href="#home">
               Home
             </a>
           </li>
           <li>
-            <a style={{ color: `white` }} href="#team">
+            <a style={{ color: `white` }} onClick={() => this.close()} href="#team">
               Team
             </a>
           </li>
           <li>
-            <a style={{ color: `white` }} href="#tech">
+            <a style={{ color: `white` }} onClick={() => this.close()} href="#tech">
               Techonolgy
             </a>
           </li>
           <li>
-            <a style={{ color: `white` }} href="#about">
+            <a style={{ color: `white` }} onClick={() => this.close()} href="#about">
               About
             </a>
           </li>
           <li>
-            <a style={{ color: `white` }} href="#about">
+            <a style={{ color: `white` }} onClick={() => this.close()} href="#about">
               Event
             </a>
           </li>
           <li>
-            <a style={{ color: `white` }} href="/contact">
+            <a style={{ color: `white` }} onClick={() => this.close()} href="#contact">
               Contact
             </a>
           </li>
