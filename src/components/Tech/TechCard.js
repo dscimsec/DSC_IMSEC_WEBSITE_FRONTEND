@@ -19,7 +19,7 @@ function TechCard(props) {
         </a>
       </div>
       <div className="col s12 m6" style={{ padding: "20px" }}>
-        <img src={web} alt="#" style={{ width: "100%", height: "50%" }} />
+        <img src={props.avatar} alt="#" style={{ width: "100%", height: "50%" }} />
       </div>
     </div>
   );

@@ -23,18 +23,19 @@ class Team extends Component {
 
   render() {
     return (
-  <div className="carousel">
-    {this.state.teamMember &&
-      this.state.teamMember.map((mem) => (
-        <a className="carousel-item" key={mem.email} href="#">
-          <TeamMember
-            name={mem.name}
-            designation={mem.designation}
-            profiles={mem.profiles}
-          />
-        </a>
-      ))}
-  </div>
+      <div className="carousel">
+        {this.state.teamMember &&
+          this.state.teamMember.map((mem) => (
+            <a className="carousel-item" key={mem.email} href="#">
+              <TeamMember
+                name={mem.name}
+                designation={mem.designation}
+                profiles={mem.profiles}
+                profile_pic={`${process.env.REACT_APP_BACKEND_URL}/${mem.profile_pic}`}
+              />
+            </a>
+          ))}
+      </div>
     );
   }
 }
@@ -44,20 +45,20 @@ export default Team;
 {
 }
 
-      // <div className="carousel">
-      //   <a className="carousel-item" href="#one!">
-      //     <TeamMember />
-      //   </a>
-      //   <a className="carousel-item" href="#two!">
-      //     <TeamMember />
-      //   </a>
-      //   <a className="carousel-item" href="#three!">
-      //     <TeamMember />{" "}
-      //   </a>
-      //   <a className="carousel-item" href="#four!">
-      //     <TeamMember />
-      //   </a>
-      //   <a className="carousel-item" href="#five!">
-      //     <TeamMember />
-      //   </a>
-      // </div>
+// <div className="carousel">
+//   <a className="carousel-item" href="#one!">
+//     <TeamMember />
+//   </a>
+//   <a className="carousel-item" href="#two!">
+//     <TeamMember />
+//   </a>
+//   <a className="carousel-item" href="#three!">
+//     <TeamMember />{" "}
+//   </a>
+//   <a className="carousel-item" href="#four!">
+//     <TeamMember />
+//   </a>
+//   <a className="carousel-item" href="#five!">
+//     <TeamMember />
+//   </a>
+// </div>

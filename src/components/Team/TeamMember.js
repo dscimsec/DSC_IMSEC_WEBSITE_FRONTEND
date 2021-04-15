@@ -1,9 +1,9 @@
 import img from "../../images/img1.svg";
 
-const TeamMember = ({ name, designation, profiles }) => {
+const TeamMember = ({ name, designation, profiles,profile_pic }) => {
   return (
     <div className="card">
-      <img src={img} alt="#" />
+      <img src={profile_pic} alt="#" style={{height:"150px" , width:"200px"}}/>
       <div className="center">
         <div className="row">
           <h6>{name}</h6>
