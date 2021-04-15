@@ -4778,7 +4778,6 @@ $jscomp.polyfill = function (e, r, p, m) {
   * Copyright 2014 Alfiana E. Sibuea and other contributors
   * Released under the MIT license
   * https://github.com/fians/Waves/blob/master/LICENSE
-  */
 
 ;(function (window) {
   'use strict';
@@ -4994,7 +4993,6 @@ $jscomp.polyfill = function (e, r, p, m) {
     /* uses an integer rather than bool so there's no issues with
      * needing to clear timeouts if another touch event occurred
      * within the 500ms. Cannot mouseup between touchstart and
-     * touchend, nor in the 500ms after touchend. */
     touches: 0,
     allowEvent: function (e) {
       var allow = true;
@@ -5042,7 +5040,6 @@ $jscomp.polyfill = function (e, r, p, m) {
 
   /**
    * Bubble the click and show effect if .waves-effect elem was found
-   */
   function showEffect(e) {
     var element = getWavesEffectElement(e);
 
@@ -5082,7 +5079,6 @@ $jscomp.polyfill = function (e, r, p, m) {
    * bubble mouseup/mousedown events).
    *   Intended to be used with dynamically loaded forms/inputs, or
    * where the user doesn't want a delegated click handler.
-   */
   Waves.attach = function (element) {
     //FUTURE: automatically add waves classes and allow users
     // to specify them with an options param? Eg. light/classic/button
