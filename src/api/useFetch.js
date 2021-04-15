@@ -7,7 +7,6 @@ const useFetch = (url) => {
 
   useEffect(() => {
     const abortCont = new AbortController();
-
     fetch(url, { signal: abortCont.signal })
       .then((res) => {
         if (!res.ok) {
@@ -29,12 +28,16 @@ const useFetch = (url) => {
       });
     return () => abortCont.abort();
   }, [url]);
-
-  return {
+// {console.log(err)
+//   console.log(data)
+//   console.log(isPending)
+// }
+  return( {
     data,
     isPending,
     err,
-  };
+  }
+  )
 };
 
 export default useFetch;
