@@ -18,7 +18,7 @@ const Tech = (props) => {
             name={tech.name}
             about={tech.about}
             codelabs_link={tech.codelabs_link}
-            avatar={tech.avatar}
+            avatar={`${process.env.REACT_APP_BACKEND_URL}/${tech.avatar}`}
           />
         ))}
       </div>

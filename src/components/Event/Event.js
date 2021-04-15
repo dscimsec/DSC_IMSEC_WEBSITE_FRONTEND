@@ -31,21 +31,23 @@ class Event extends Component {
                 name={event.name}
                 location={event.location}
                 time={event.time}
+                banner={event.banner}
+                overview={event.overview}
               />
             ))}
           </div>
         </section>
 
-        <div
-          id="modal1"
-          className="modal"
-          style={{ fontFamily: "sans-serif" }}
-        >
-          {
-            this.state.events.map(event => (
-              <Modal {...event}/>
-            ))
-          }
+        <div id="modal1" className="modal" style={{ fontFamily: "sans-serif" }}>
+          {this.state.events.map((event) => (
+            <Modal
+              name={event.name}
+              location={event.location}
+              time={event.time}
+              banner={`${process.env.REACT_APP_BACKEND_URL}/${event.banner}`}
+              overview={event.overview}
+            />
+          ))}
         </div>
       </section>
     );
