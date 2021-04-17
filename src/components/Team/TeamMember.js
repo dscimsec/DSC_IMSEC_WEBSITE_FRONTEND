@@ -1,4 +1,4 @@
-import img from "../../images/img1.svg";
+// import img from "../../images/img1.svg";
 
 const TeamMember = ({ name, designation, profiles,profile_pic }) => {
   return (
