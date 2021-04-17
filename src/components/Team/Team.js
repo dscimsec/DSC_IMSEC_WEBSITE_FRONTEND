@@ -24,23 +24,26 @@ class Team extends Component {
   render() {
     return (
       <>
-      <section className="center">
-        <h4><span className="blue-text text-darken-4">Our</span> Team</h4>
-        <p className="grey-text">Team is everthing. We are Family</p>
-      </section>
-      <div className="carousel">
-        {this.state.teamMember &&
-          this.state.teamMember.map((mem) => (
-            <a className="carousel-item" key={mem.email} href="#">
-              <TeamMember
-                name={mem.name}
-                designation={mem.designation}
-                profiles={mem.profiles}
-                profile_pic={`${process.env.REACT_APP_BACKEND_URL}/${mem.profile_pic}`}
-              />
-            </a>
-          ))}
-      </div>
+        <section className="center">
+          <h4>
+            <span className="blue-text text-darken-4">Our</span> Team
+          </h4>
+          <p className="grey-text">Team is everthing. We are Family</p>
+        </section>
+
+        <div className="carousel">
+          {this.state.teamMember &&
+            this.state.teamMember.map((mem) => (
+              <a className="carousel-item" key={mem.email} href="#">
+                <TeamMember
+                  name={mem.name}
+                  designation={mem.designation}
+                  profiles={mem.profiles}
+                  profile_pic={`${process.env.REACT_APP_BACKEND_URL}/${mem.profile_pic}`}
+                />
+              </a>
+            ))}
+        </div>
       </>
     );
   }
