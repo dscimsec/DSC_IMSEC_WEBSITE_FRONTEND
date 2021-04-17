@@ -29,8 +29,10 @@ function Modal(props) {
             </div>
             <p className="grey-text">{props.location}</p>
             <p className="grey-text">{props.time}</p>
-            <p style={{ fontWeight: "bold" }}>Description</p>
-            <p className="grey-text">{props.overview}</p>
+            {/* <p style={{ fontWeight: "bold" }}>Description</p> */}
+            <p style={{ fontWeight: "bold" }}>
+              {props.overview}
+            </p>
           </div>
         </div>
         <div className="modal-footer">
