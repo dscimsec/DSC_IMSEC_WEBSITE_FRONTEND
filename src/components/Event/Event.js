@@ -23,8 +23,12 @@ class Event extends Component {
   }
   render() {
     return (
-      <section>
-        <section className="container">
+      <section style={{padding:"20px"}}>
+        <header className="center" style={{padding:"20px"}}>
+          <h4 style={{fontFamily:"Valid family names"}}> <span className="blue-text text-darken-4">Our</span> Featured Event</h4>
+          <p className="grey-text">Events are listed in reverse chronological order by date</p>
+        </header>
+        <section className="container" style={{padding:"20px"}}>
           <div className="row">
             {this.state.events.map((event) => (
               <EventCard
