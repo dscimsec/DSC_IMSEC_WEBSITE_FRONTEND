@@ -6,7 +6,7 @@ const Home = () => {
     <div className="container">
       <div className="row center" id="grid">
         <div className="col s12 m12 l6 " id="grid1">
-          <h2>Developer Student Club IMSEC</h2>
+          <h2> <span >Developer</span> <span >Student Club</span> <span style={{color:'blue'}} > IMSEC</span></h2>
           <blockquote>
             Developer Student Clubs is a{" "}
             <span style={{ color: "blue" }}>G</span>{" "}
